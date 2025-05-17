@@ -1,0 +1,283 @@
+/* === p5 container for the p5 sketch.js === */
+
+#p5-container canvas {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+
+/* === COLOR PALETTE VARIABLES === */
+:root {
+  --black: #000000;
+  --pink: #E891C0;
+  --beige: #D3CDB5;
+  --lime: #DEF509;
+  --lavender: #A78CE9;
+  --skyblue: #8FA7ED;
+
+  --font-name: 'Syne Mono', monospace;
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+/* Apply Syne Mono ONLY to my name */
+.my-name {
+    font-family: 'Syne Mono', monospace !important;
+    color: var(--lime) !important;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+/* === GLOBAL STYLES === */
+body {
+  font-family: var(--font-body) !important; /* Ensures DM Sans is applied */
+  scroll-behavior: smooth;
+}
+
+/* === HEADINGS & NAV === */
+h1, h2, h3, .navbar-brand, .nav-link {
+  font-family: var(--font-heading) !important;
+  color: var(--pink) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* === NAVBAR OVERRIDES === */
+.navbar {
+  background-color: var(--black);
+  border-bottom: 1px solid var(--lavender);
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--lime) !important;
+  text-shadow: 0 0 5px var(--lime);
+}
+
+.navbar {
+    transition: top 0.3s ease-in-out;
+  }
+
+/* === LINKS === */
+a {
+  color: var(--lavender);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--lime);
+  text-shadow: 0 0 5px var(--lime);
+}
+
+/* === BUTTON OVERRIDES === */
+.btn {
+  font-family: var(--font-heading);
+  background-color: var(--lime);
+  color: var(--black);
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: none;
+}
+
+.btn:hover {
+  background-color: var(--skyblue);
+  color: var(--black);
+  box-shadow: 0 0 10px var(--pink), 0 0 20px var(--lime);
+}
+.floating-back-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 999;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.9rem;
+  }
+/* === SECTION LAYOUT === */
+section {
+  padding: 3rem 1.5rem;
+}
+
+/* === RESPONSIVE TYPOGRAPHY === */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+/* === RESPONSIVE cards === */
+@media (max-width: 768px) {
+    .portfolio-card {
+      height: 200px;
+    }
+}
+
+
+.about-photo {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border: 5px solid var(--lime);
+    border-radius: 0 !important;
+    box-shadow: 0 0 20px var(--lime);
+    transition: transform 0.3s ease;
+    object-fit: cover;
+  }
+  
+  .section-title {
+    font-family: var(--font-heading);
+    color: var(--pink);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+  }
+  
+  .about-description {
+    font-family: var(--font-body);
+    color: var(--black);
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .about-background{
+    background-color: white;
+    }
+
+    .portfolio {
+        background-color: white;
+    }
+
+
+  .portfolio-card {
+    position: relative;
+    border: none;
+    height: 300px; /* Keeps the height fixed */
+    min-height: 300px; /* Ensures the card is never smaller than 300px */
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .portfolio-card .card-img {
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s ease;
+    filter: brightness(100%);
+  }
+  
+  .portfolio-card:hover .card-img {
+    filter: brightness(60%);
+  }
+  
+  .portfolio-card .card-img-overlay {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: rgba(0, 0, 0, 0.4); /* optional darker overlay */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    padding: 1rem;
+  }
+  
+  .portfolio-card:hover .card-img-overlay {
+    opacity: 1;
+  }
+  
+  .portfolio-card 
+  .portfolio-card .card-text {
+    font-family: var(--font-body);
+    color: var(--beige);
+  }
+  
+  .card-title {
+    font-family: 'Syne Mono', monospace !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.8rem; /* You can adjust this value */
+    color: var(--lime)
+  }
+
+  @media (max-width: 768px) {
+    .portfolio-card .card-img-overlay {
+      opacity: 1 !important;
+      background: rgba(0, 0, 0, 0.6); /* Optional: adds contrast so text is readable */
+    }
+  
+    .portfolio-card:hover .card-img {
+      filter: brightness(60%);
+    }
+
+    .card-text {
+        font-family: var(--font-body);
+        color: var(--beige);
+    }
+    .card-title {
+        color: var(--lime) !important;
+      }
+    
+  }
+
+  /* Project Page Specific Styles */
+
+.project-title {
+    font-family: 'Syne mono', sans-serif !important;
+    color: var(--lavender)!important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .project-description {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--beige);
+    line-height: 1.6;
+  }
+
+  .project-info ul {
+    padding-left: 0;
+  }
+  
+  .project-info li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .gallery img {
+    border: 2px solid var(--lavender);
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+  }
+  
+  .gallery img:hover {
+    transform: scale(1.05);
+  }
+  
+  #project-video h3 {
+    font-weight: 600;
+    color: var(--bs-primary);
+  }
+
+  /* Showcased At / Exhibitions Section */
+.showcased-at ul {
+    padding-left: 0;
+  }
+  
+  .showcased-at li {
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--beige);
+  }
+
+  .contact {
+    background-color: #D3CDB5;
+  }
+
+  .blockquote-footer {
+    margin-top: 1rem;
+  }
